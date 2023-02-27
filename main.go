@@ -1,12 +1,13 @@
 package main
 
 import (
+	"bytes"
+	"crypto/tls"
 	"encoding/json"
 	"fmt"
 	"log"
 	"net/http"
 	"os"
-	"bytes"
 
 	// TODO have a json implementation i guess, env will do for now
 	// "issues-commenter/config"
@@ -42,8 +43,14 @@ func main() {
 	// token sent as auth, set correct content-type, otherwise won't work
 	req.Header.Add("authorization", fmt.Sprintf("token %s", token))
 	req.Header.Add("content-type", "application/json")
+
+	tr := &http.Transport{
+		TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
+	}
+
+	client := &http.Client{Transport: tr}
 	
-	resp, err := http.DefaultClient.Do(req)
+	resp, err := client.Do(req)
 	CE(err)
 
 	log.Print(resp)
