@@ -1,0 +1,5 @@
+{
+  "token" : "5da9654ea9547a50e5f309a11c5a25c20aa59063",
+  "report_path": "./report",
+  "url":  "https://git.example.com/api/v1/repos/gitty/split/issues/2/comments"
+}
