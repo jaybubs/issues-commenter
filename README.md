@@ -8,4 +8,5 @@ The following env vars must be present:
 
 - TOKEN: the generated api token for your bot/user to be able to post request
 - REPORT_PATH: path to the go test report file
+- COMMENT_BODY: the string to post in the comment
 - ISSUE_URL: url to the specific issues (pr) you try to post the comment to (check your api docs, could be something like "https://git.example.com/api/v1/repos/example-owner/example-project/issues/69/comments"

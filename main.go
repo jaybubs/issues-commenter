@@ -22,7 +22,8 @@ func main() {
 
 	// set vars
 	token := os.Getenv("TOKEN")
-	report_path := os.Getenv("REPORT_PATH")
+	// report_path := os.Getenv("REPORT_PATH")
+	comment_body := os.Getenv("COMMENT_BODY")
 	url := os.Getenv("ISSUE_URL")
 
 	// load token
@@ -32,8 +33,9 @@ func main() {
 
 	// move the entire file content into the body
 	// f, _ := os.ReadFile(config.Report_path)
-	f, _ := os.ReadFile(report_path)
-	m := Message{string(f)}
+	// f, _ := os.ReadFile(report_path)
+	// m := Message{string(f)}
+	m := Message{comment_body}
 	j, _ := json.Marshal(m)
 
 	// url of the git issue api
